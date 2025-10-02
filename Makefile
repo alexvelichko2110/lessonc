@@ -10,13 +10,16 @@ AL_INC_PATH = /usr/include
 #AL_LIBS     = -ldl -lopenal -lmad -lpthread -logg -lvorbis -lvorbisfile
 CFLAGS      = -g -I$(AL_INC_PATH) -Wall -O3
 
-all: hello printf
+all: hello printf fprintf
 
 hello: hello.o
 	$(CC) $(LDFLAGS) hello.o -o hello $(LIBS) $(AL_LIBS) -lc
 
 printf: printf.o
 	$(CC) $(LDFLAGS) printf.o -o printf $(LIBS) $(AL_LIBS) -lc
+
+printf: fprintf.o
+	$(CC) $(LDFLAGS) fprintf.o -o fprintf $(LIBS) $(AL_LIBS) -lc
 
 #example-3: example-3.o kbhit.o Vector3D.o OpenAlContext.o Sound.o SoundData.o Data.o
 #	$(CC) $(LDFLAGS) example-3.o kbhit.o OpenAlContext.o Sound.o SoundData.o Data.o -o example-3 $(LIBS) $(AL_LIBS) -lc
